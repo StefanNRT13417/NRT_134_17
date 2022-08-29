@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<oglasi xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oglasi.xsd">
+	<oglas>
+		<kategorija_oglasa>automobili</kategorija_oglasa>
+		<datum_isteka_oglasa>2022-12-21</datum_isteka_oglasa>
+		<cena valuta="eur">2499</cena>
+		<tekst_oglasa>Random text</tekst_oglasa>
+		<oznake>
+			<oznaka_oglasa>BMW</oznaka_oglasa>
+			<oznaka_oglasa>M3</oznaka_oglasa>
+			<oznaka_oglasa>twin-turbocharged</oznaka_oglasa>
+		</oznake>
+		<email_adrese>
+			<email tip="privatni">randomemail@gmail.com</email>
+			<email tip="poslovni">randombusinessemail@randomcompany.com</email>
+		</email_adrese>
+	</oglas>
+</oglasi>
+

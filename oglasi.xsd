@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:simpleType name="stringType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="intType">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="kategorijaType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="automobili"/>
+			<xs:enumeration value="stanovi"/>
+			<xs:enumeration value="alati"/>
+			<xs:enumeration value="podučavanje"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tipType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="privatni"/>
+			<xs:enumeration value="poslovni"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="datumType">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="tekstType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="10"/>
+			<xs:maxLength value="180"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="valutaType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="din"/>
+			<xs:enumeration value="eur"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="oznakeType">
+		<xs:sequence>
+			<xs:element name="oznaka_oglasa" maxOccurs="unbounded" type="stringType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="cenaType">
+		<xs:simpleContent>
+			<xs:extension base="xs:positiveInteger">
+				<xs:attribute name="valuta" type="valutaType" default="din"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="emailType">
+		<xs:sequence>
+			<xs:element name="email" maxOccurs="unbounded" type="emailAddress"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="emailAddress">
+		<xs:simpleContent>
+			<xs:restriction base="tipAttribute">
+				<xs:pattern value="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="tipAttribute">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="tip" type="tipType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="oglasType">
+		<xs:sequence>
+			<xs:element name="kategorija_oglasa" type="kategorijaType"/>
+			<xs:element name="datum_isteka_oglasa" type="datumType"/>
+			<xs:element name="cena" type="cenaType"/>
+			<xs:element name="tekst_oglasa" type="tekstType"/>
+			<xs:element name="oznake" type="oznakeType"/>
+			<xs:element name="email_adrese" type="emailType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="oglasiType">
+		<xs:sequence>
+			<xs:element name="oglas" maxOccurs="unbounded" type="oglasType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="oglasi" type="oglasiType"/>
+
+</xs:schema>
