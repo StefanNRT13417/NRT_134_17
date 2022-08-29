@@ -1,0 +1,20 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "klijent.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StefanNRT13417/NRT_134_17.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StefanNRT13417/NRT_134_17/issues"
+  },
+  "homepage": "https://github.com/StefanNRT13417/NRT_134_17#readme",
+  "description": ""
+}
