@@ -1,0 +1,17 @@
+<!ELEMENT oglasi (oglas+)>
+<!ELEMENT oglas (kategorija_oglasa,datum_isteka_oglasa,cena,tekst_oglasa,oznake,email_adrese)>
+<!ELEMENT kategorija_oglasa EMPTY>
+<!ELEMENT datum_isteka_oglasa (#PCDATA)>
+<!ELEMENT cena (#PCDATA)>
+<!ELEMENT tekst_oglasa (#PCDATA)>
+<!ELEMENT oznake (oznaka_oglasa+)>
+<!ELEMENT email_adrese (email+)>
+<!ELEMENT oznaka_oglasa (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+
+<!ATTLIST kategorija_oglasa kategorija (automobili|stanovi|alati|podučavanje) #REQUIRED>
+<!ATTLIST cena valuta (rsd|eur) "rsd">
+<!ATTLIST email tip (privatni|sluzbeni) #REQUIRED>
+
+
